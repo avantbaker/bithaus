@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Coda');
+
+.top-bar-title {
+    font-family: 'Coda', cursive;
+    font-size: 22px;
+    color: #fff;
+}
+
+.nav-menu a {
+    color: #fff;
+}
