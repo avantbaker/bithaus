@@ -8,7 +8,7 @@ import { AdminMenuComponent } from "./adminMenu/admin-menu.component";
 import { LoginComponent } from "./login/login.component";
 import { SignUpComponent } from "./signUp/sign-up.components";
 
-// import { UserService } from './adminShared/user.service';
+import { UserService } from './adminShared/user.service';
 
 const AdminRoutes: Routes = [
     {
@@ -17,8 +17,7 @@ const AdminRoutes: Routes = [
         children: [
             { path: 'login', component: LoginComponent },
             { path: 'signup', component: SignUpComponent },
-            // { path: '', component: AdminMenuComponent, canActivate: [UserService] },
-            { path: '', component: AdminMenuComponent },
+            { path: '', component: AdminMenuComponent, canActivate: [UserService] },
         ]
     }
 ];
@@ -38,8 +37,8 @@ const AdminRoutes: Routes = [
         LoginComponent,
         SignUpComponent
     ],
-    // providers: [
-    //     UserService
-    // ]
+    providers: [
+        UserService
+    ]
 })
 export class AdminModule {}
