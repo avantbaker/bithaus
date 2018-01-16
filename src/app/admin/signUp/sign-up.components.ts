@@ -20,7 +20,7 @@ export class SignUpComponent {
         } else {
             this.passwordFail = false;
             this.userSVC.register(this.email, this.password1);
-            this.userSVC.verifyUser();
+            this.userSVC.verifyUser(null);
         }
     }
 

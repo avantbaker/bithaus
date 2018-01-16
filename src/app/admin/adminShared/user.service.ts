@@ -43,9 +43,9 @@ export class UserService implements CanActivate {
             });
     }
 
-    verifyUser() {
+    verifyUser(res: any) {
         this.authUser = firebase.auth().currentUser;
-
+        console.log(this.authUser);
         if (this.authUser) {
             alert(`Welcome ${this.authUser.email}`);
             this.loggedInUser = this.authUser.email;
@@ -56,11 +56,11 @@ export class UserService implements CanActivate {
     }
 
     login(loginEmail: string, loginPassword: string) {
-        firebase.auth().signInWithEmailAndPassword(loginEmail, loginPassword)
+        return firebase.auth().signInWithEmailAndPassword(loginEmail, loginPassword)
             .catch(function(e) {
                 alert(`${e.message} Unable to login. Try again!`);
+                this.logout();
             })
-            .then(this.verifyUser.bind(this));
     }
 
     logout() {

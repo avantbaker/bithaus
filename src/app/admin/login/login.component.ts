@@ -14,6 +14,8 @@ export class LoginComponent {
 
     login() {
         this.userSVC.login(this.email, this.password1);
+        this.userSVC.verifyUser(null);
+
     }
 
     signUp() {

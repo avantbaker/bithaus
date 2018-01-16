@@ -3,7 +3,9 @@
 
     <div class="top-bar-left">
         <ul class="menu">
-            <li class="admin-menu"><a [routerLink]="['/admin/blog-admin']">Manage Blog</a></li>
+            <li class="admin-menu"><a (click)="chooseMode('add')">Add Post</a></li>
+            <li class="admin-menu" *ngIf="menuChoice"><a (click)="chooseMode('')"></a></li>
+            <li class="admin-menu"><a [routerLink]="['/admin']">Back to Admin</a></li>
         </ul>
     </div>
     <div *ngIf="theUser" class="top-bar-right">
@@ -14,11 +16,7 @@
     </div>
 </div>
 
-<div class="row">
-    <p>image goes here</p>
-</div>
-
-<div class="row align-center">
-    <h2>Welcome to the Admin Area for the BitHaus Crypto Company.</h2>
-    <h3>This area is for authorized users only!</h3>
+<div [ngSwitch]="menuChoice">
+    <div *ngSwitchCase="'add'"><add-menu></add-menu></div>
+    <div *ngSwitchDefault><h1>Default</h1></div>
 </div>
